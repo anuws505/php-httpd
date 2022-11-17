@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  web:
+    container_name: ${CONTAINER_NAME}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: "php-httpd:v1.0"
+    ports:
+      - "${HTTP_PORT1}:80"
+      - "${HTTP_PORT2}:80"
+      - "${HTTPS_PORT}:443"
+    volumes:
+      - "${WORKING_DIR1}:/var/www/html/test1"
+      - "${WORKING_DIR2}:/var/www/html/test2"
